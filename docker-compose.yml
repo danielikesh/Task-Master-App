@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    container_name: task-notes-app
+    ports:
+      - "80:3000"
+    volumes:
+      - ./public:/app/public
+      - ./tasks.db:/app/tasks.db
+      - ./taskmaster.db:/app/taskmaster.db
+      - .:/app      # Mount entire folder (careful with dev)
+    environment:
+      - NODE_ENV=production
+    restart: always
