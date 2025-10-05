@@ -6,6 +6,8 @@ const compression = require('compression');
 const db = require('./database');
 const path = require('path');
 
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -407,8 +409,8 @@ function logActivity(actionType, itemType, itemId, description) {
 
 // ============= START SERVER =============
 
-app.listen(PORT, () => {
-    console.log(`
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on ${PORT}`));
+console.log(`
 ╔════════════════════════════════════════╗
 ║   🚀 TaskMaster Pro Enhanced Edition   ║
 ║                                        ║
@@ -417,4 +419,3 @@ app.listen(PORT, () => {
 ║   Database: ✅ Connected                ║
 ╚════════════════════════════════════════╝
   `);
-});
